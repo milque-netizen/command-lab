@@ -1,0 +1,3 @@
+"ls -lh" "List files in human-readable format"
+"date" "Show the current system date and time"
+"whoami" "Display the current logged-in user"
