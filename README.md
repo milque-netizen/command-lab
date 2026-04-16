@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Updated on: Thu Apr 16 10:13:24 PM CEST 2026
+Updated on: Thu Apr 16 10:16:48 PM CEST 2026
 ---
 
 ### [General] Search for all lines containing tcp
@@ -24,5 +24,9 @@ Updated on: Thu Apr 16 10:13:24 PM CEST 2026
 
 ### [Bash] Check script syntax without executing it
 - **Command:** `bash -n auto_lab.sh`
+- *Added: 2026-04-16*
+
+### [Logging] Monitor script logs in real-time
+- **Command:** `tail -f script_activity.log`
 - *Added: 2026-04-16*
 

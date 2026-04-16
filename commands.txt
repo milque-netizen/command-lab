@@ -1,2 +1,2 @@
-bash -n auto_lab.sh|Check script syntax without executing it|Bash
+tail -f script_activity.log|Monitor script logs in real-time|Logging
 
