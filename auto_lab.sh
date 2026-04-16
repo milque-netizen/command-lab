@@ -3,32 +3,29 @@
 OUTPUT="README.md"
 DATA="commands.txt"
 
-# 1. Ensure the README exists and has a header
+# 1. Ensure the README exists
 if [ ! -f "$OUTPUT" ]; then
     echo "# 📚 My Command Library" > "$OUTPUT"
     echo "Updated on: $(date)" >> "$OUTPUT"
     echo -e "---\n" >> "$OUTPUT"
 fi
 
-# 2. Safety Check for new data
+# 2. Safety Check
 if [ ! -s "$DATA" ]; then
-    echo " Nothing new to add. Fill $DATA first!"
+    echo "Nothing new to add. Fill $DATA first!"
     exit 0
 fi
 
-mapfile -t lines < "$DATA"
-
-# 3. The "Population" Loop (Append new stuff)
 echo "Growing your library..."
-for entry in "${lines[@]}"; do
-    [[ -z "${entry// }" ]] && continue
 
-    cmd=$(echo "$entry" | cut -d '"' -f 2)
-    desc=$(echo "$entry" | cut -d '"' -f 4)
-    cat=$(echo "$entry" | cut -d '"' -f 6)
-
-    if [ -z "$cmd" ]; then continue; fi
-    if [ -z "$cat" ]; then cat="General"; fi
+# 3. Improved Read Loop
+# We use a Pipe (|) as a separator in commands.txt to avoid quote conflicts
+while IFS="|" read -r cmd desc cat; do
+    # Skip empty lines
+    [[ -z "$cmd" ]] && continue
+    
+    # Default category if empty
+    [[ -z "$cat" ]] && cat="General"
 
     {
         echo "### [$cat] $desc"
@@ -36,9 +33,10 @@ for entry in "${lines[@]}"; do
         echo "- *Added: $(date +'%Y-%m-%d')*"
         echo ""
     } >> "$OUTPUT"
-done
 
-# 4. Refresh the Header Date (Line 2)
+done < "$DATA"
+
+# 4. Refresh the Header Date
 sed -i "2s/Updated on:.*/Updated on: $(date)/" "$OUTPUT"
 
 # 5. Git Automation
@@ -46,9 +44,9 @@ git add "$OUTPUT" "$DATA"
 git commit -m "Library Update: $(date +'%Y-%m-%d %H:%M')"
 
 if git push origin main; then
-    echo "Success! Script executed with the NEW logic."
+    echo "Success!"
     > "$DATA"
 else
-    echo "Push failed. Keeping data in $DATA."
+    echo "Push failed. Data preserved."
 fi
 
