@@ -1,1 +1,2 @@
-ip -o addr show | awk '{print $1}' | Show first col | Networking
+ip -o addr show | awk '{print $1}' ;; Show first col ;; Networking
+
