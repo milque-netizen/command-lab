@@ -1,66 +1,24 @@
 # 📚 My Command Library
-Organized by Category. Updated on: Thu Apr 16 09:14:28 PM CEST 2026
+Updated on: Thu Apr 16 09:35:46 PM CEST 2026
 ---
 
-### [Filesystem] Find all Python files
-- **Command:** `find . -name '*.py' `
-
-### [Git] See compact history
-- **Command:** `git log --oneline`
-
-### [Git] This 'undoes' the last commit and brings back your old README
-- **Command:** `git checkout HEAD^ README.md`
-- *Added on: 2026-04-16*
-
-### [mapfile] Read only the first 5 lines of a file into an array
-- **Command:** `mapfile -n 5 my_array < file.txt`
-- *Added: 2026-04-16*
-
-### [mapfile] Skip the first 10 lines and read the rest into an array
-- **Command:** `mapfile -s 10 my_array < file.txt`
-- *Added: 2026-04-16*
-
-### [mapfile] Read from a specific file descriptor (Advanced I/O)
-- **Command:** `mapfile -t -u 3 my_array 3< file.txt`
-- *Added: 2026-04-16*
-
-### [mapfile] Append data starting at index 10 instead of overwriting the array
-- **Command:** `mapfile -O 10 my_array < new_data.txt`
-- *Added: 2026-04-16*
-
-### [mapfile] Use a colon (:) as a delimiter instead of a newline
-- **Command:** `mapfile -d ':' my_array < /etc/passwd`
-- *Added: 2026-04-16*
-
-### [sed] Surgically update the date on the 2nd line of a file
-- **Command:** `sed -i '2s/Updated on:.*/Updated on: \$(date)/' README.md`
-- *Added: 2026-04-16*
-
-### [grep] Remove grep from displaying
-- **Command:** `ps aux | grep -v grep | grep sshd`
-- *Added: 2026-04-16*
-
-### [Filesystem] Directory size and sort
-- **Command:** `du -sh /usr/* | sort -h`
-- *Added: 2026-04-16*
-
-### [grep] Finds every line containing the string 'tcp'
+### [General] Search for all lines containing "tcp"
 - **Command:** `grep tcp /etc/services`
 - *Added: 2026-04-16*
 
-### [grep] Regex filtering
+### [Grep] Find only the 5-digit TCP port strings
 - **Command:** `grep -Ewo '[0-9]{5}/tcp' /etc/services`
 - *Added: 2026-04-16*
 
-### [Cleaning the Output (Pipe Method)]  -f1
-- **Command:** `grep -Ewo '[0-9]{5}/tcp' /etc/services | cut -d`
+### [Extract 5-digit port numbers only|Grep]  cut -d"/" -f1
+- **Command:** `grep -Ewo '[0-9]{5}/tcp' /etc/services `
 - *Added: 2026-04-16*
 
-### [awk] The AWK Approach (Modern & Faster)
-- **Command:** `awk -F '/' '/[0-9]{5}\/tcp/ { print; }'`
+### [Awk] Find and print full lines with 5-digit TCP ports
+- **Command:** `awk -F '/' '/[0-9]{5}\/tcp/ { print; }' /etc/services`
 - *Added: 2026-04-16*
 
-### [The Advanced AWK Extract] ); print a[2]; }'
-- **Command:** `awk -F '/' '/[0-9]{5}\/tcp/ { split($1,a,`
+### [Awk] Extract clean port number from service description
+- **Command:** `awk -F '/' '/[0-9]{5}\/tcp/ { split($1,a," "); print a[2]; }' /etc/services`
 - *Added: 2026-04-16*
 

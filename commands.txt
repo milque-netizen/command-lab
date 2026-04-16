@@ -1,5 +1,6 @@
-"grep tcp /etc/services" "Finds every line containing the string 'tcp'" "grep"
-"grep -Ewo '[0-9]{5}/tcp' /etc/services" "Regex filtering" "grep"
-"grep -Ewo '[0-9]{5}/tcp' /etc/services | cut -d"/" -f1" "Cleaning the Output (Pipe Method)" "grep"
-"awk -F '/' '/[0-9]{5}\/tcp/ { print; }'" "The AWK Approach (Modern & Faster)" "awk"
-"awk -F '/' '/[0-9]{5}\/tcp/ { split($1,a," "); print a[2]; }'" "The Advanced AWK Extract" "awk"
+grep tcp /etc/services|Search for all lines containing "tcp"|General
+grep -Ewo '[0-9]{5}/tcp' /etc/services|Find only the 5-digit TCP port strings|Grep
+grep -Ewo '[0-9]{5}/tcp' /etc/services | cut -d"/" -f1|Extract 5-digit port numbers only|Grep
+awk -F '/' '/[0-9]{5}\/tcp/ { print; }' /etc/services|Find and print full lines with 5-digit TCP ports|Awk
+awk -F '/' '/[0-9]{5}\/tcp/ { split($1,a," "); print a[2]; }' /etc/services|Extract clean port number from service description|Awk
+
