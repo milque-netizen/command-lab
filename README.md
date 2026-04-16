@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Updated on: Thu Apr 16 11:44:29 PM CEST 2026
+Updated on: Thu Apr 16 11:54:31 PM CEST 2026
 ---
 
 ### [General] Search for all lines containing tcp
@@ -67,6 +67,10 @@ Updated on: Thu Apr 16 11:44:29 PM CEST 2026
 - *Added: 2026-04-16*
 
 ### [Network] ip + awk (Interface Inventory)
+- **Command:** `ip -o addr show | awk {split($4, a, "/"); print $2 ": " a[1]}`
+- *Added: 2026-04-16*
+
+### [Networking] Interface Inventory
 - **Command:** `ip -o addr show | awk {split($4, a, "/"); print $2 ": " a[1]}`
 - *Added: 2026-04-16*
 

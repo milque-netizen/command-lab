@@ -1,1 +1,2 @@
-ip -o addr show | awk '{split($4, a, "/"); print $2 ": " a[1]}'|ip + awk (Interface Inventory)|Network
+ip -o addr show | awk '{split($4, a, "/"); print $2 ": " a[1]}' :: Interface Inventory :: Networking
+
