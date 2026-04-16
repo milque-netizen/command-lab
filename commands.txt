@@ -1,1 +1,1 @@
-"ps aux | grep -v grep | grep sshd" "Remove grep from displaying" "grep"
+"du -sh /usr/* | sort -h" "Directory size and sort" "Filesystem"

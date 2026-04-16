@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Organized by Category. Updated on: Thu Apr 16 07:16:11 PM CEST 2026
+Organized by Category. Updated on: Thu Apr 16 07:51:44 PM CEST 2026
 ---
 
 ### [Filesystem] Find all Python files
@@ -38,5 +38,9 @@ Organized by Category. Updated on: Thu Apr 16 07:16:11 PM CEST 2026
 
 ### [grep] Remove grep from displaying
 - **Command:** `ps aux | grep -v grep | grep sshd`
+- *Added: 2026-04-16*
+
+### [Filesystem] Directory size and sort
+- **Command:** `du -sh /usr/* | sort -h`
 - *Added: 2026-04-16*
 
