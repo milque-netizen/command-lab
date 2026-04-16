@@ -1,12 +1,17 @@
 # 📚 My Command Library
-Stored for future use. Last updated: Thu Apr 16 02:30:38 AM CEST 2026
-
-### List files in human-readable format
+Organized by Category. Updated: Thu Apr 16 02:47:01 AM CEST 2026
+### [Filesystem] List files
 - **Command:** `ls -lh`
 
-### Show the current system date and time
+### [Git] Check git state
+- **Command:** `git status`
+
+### [System] Show time
 - **Command:** `date`
 
-### Display the current logged-in user
-- **Command:** `whoami`
+### [] 
+- **Command:** ``
+
+### [] 
+- **Command:** ``
 
