@@ -1,2 +1,1 @@
 ip -o addr show | awk '{print $1}' ::: Show first column ::: Networking
-
