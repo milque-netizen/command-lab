@@ -1,2 +1,1 @@
-"sed -i '2s/Updated on:.*/Updated on: \$(date)/' README.md" "Surgically update the date on the 2nd line of a file" "sed"
-
+"ps aux | grep -v grep | grep sshd" "Remove grep from displaying" "grep"

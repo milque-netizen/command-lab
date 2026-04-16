@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Organized by Category. Updated on: Thu Apr 16 04:04:14 AM CEST 2026
+Organized by Category. Updated on: Thu Apr 16 07:16:11 PM CEST 2026
 ---
 
 ### [Filesystem] Find all Python files
@@ -34,5 +34,9 @@ Organized by Category. Updated on: Thu Apr 16 04:04:14 AM CEST 2026
 
 ### [sed] Surgically update the date on the 2nd line of a file
 - **Command:** `sed -i '2s/Updated on:.*/Updated on: \$(date)/' README.md`
+- *Added: 2026-04-16*
+
+### [grep] Remove grep from displaying
+- **Command:** `ps aux | grep -v grep | grep sshd`
 - *Added: 2026-04-16*
 
