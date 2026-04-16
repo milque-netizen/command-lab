@@ -1,3 +1,2 @@
-"find . -name '*.py' " "Find all Python files" "Filesystem"
-"git log --oneline" "See compact history" "Git"
+"git checkout HEAD^ README.md" "This 'undoes' the last commit and brings back your old README" "Git"
 
