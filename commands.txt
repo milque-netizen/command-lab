@@ -1,1 +1,5 @@
-"du -sh /usr/* | sort -h" "Directory size and sort" "Filesystem"
+"grep tcp /etc/services" "Finds every line containing the string 'tcp'" "grep"
+"grep -Ewo '[0-9]{5}/tcp' /etc/services" "Regex filtering" "grep"
+"grep -Ewo '[0-9]{5}/tcp' /etc/services | cut -d"/" -f1" "Cleaning the Output (Pipe Method)" "grep"
+"awk -F '/' '/[0-9]{5}\/tcp/ { print; }'" "The AWK Approach (Modern & Faster)" "awk"
+"awk -F '/' '/[0-9]{5}\/tcp/ { split($1,a," "); print a[2]; }'" "The Advanced AWK Extract" "awk"

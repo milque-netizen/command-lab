@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Organized by Category. Updated on: Thu Apr 16 07:51:44 PM CEST 2026
+Organized by Category. Updated on: Thu Apr 16 09:14:28 PM CEST 2026
 ---
 
 ### [Filesystem] Find all Python files
@@ -42,5 +42,25 @@ Organized by Category. Updated on: Thu Apr 16 07:51:44 PM CEST 2026
 
 ### [Filesystem] Directory size and sort
 - **Command:** `du -sh /usr/* | sort -h`
+- *Added: 2026-04-16*
+
+### [grep] Finds every line containing the string 'tcp'
+- **Command:** `grep tcp /etc/services`
+- *Added: 2026-04-16*
+
+### [grep] Regex filtering
+- **Command:** `grep -Ewo '[0-9]{5}/tcp' /etc/services`
+- *Added: 2026-04-16*
+
+### [Cleaning the Output (Pipe Method)]  -f1
+- **Command:** `grep -Ewo '[0-9]{5}/tcp' /etc/services | cut -d`
+- *Added: 2026-04-16*
+
+### [awk] The AWK Approach (Modern & Faster)
+- **Command:** `awk -F '/' '/[0-9]{5}\/tcp/ { print; }'`
+- *Added: 2026-04-16*
+
+### [The Advanced AWK Extract] ); print a[2]; }'
+- **Command:** `awk -F '/' '/[0-9]{5}\/tcp/ { split($1,a,`
 - *Added: 2026-04-16*
 
