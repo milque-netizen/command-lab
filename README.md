@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Updated on: Thu Apr 16 10:16:48 PM CEST 2026
+Updated on: Thu Apr 16 10:23:30 PM CEST 2026
 ---
 
 ### [General] Search for all lines containing tcp
@@ -28,5 +28,33 @@ Updated on: Thu Apr 16 10:16:48 PM CEST 2026
 
 ### [Logging] Monitor script logs in real-time
 - **Command:** `tail -f script_activity.log`
+- *Added: 2026-04-16*
+
+### [Storage] List files and folders by size in human-readable format
+- **Command:** `du -sh * | sort -h`
+- *Added: 2026-04-16*
+
+### [Storage] Show all disks and partitions in a clean tree
+- **Command:** `lsblk -o NAME,SIZE,TYPE,MOUNTPOINT`
+- *Added: 2026-04-16*
+
+### [System] Show only system errors (level 3) from the current boot
+- **Command:** `journalctl -p 3 -xb`
+- *Added: 2026-04-16*
+
+### [Monitoring] Show the top 10 processes consuming the most RAM
+- **Command:** `ps aux --sort=-%mem | head -n 10`
+- *Added: 2026-04-16*
+
+### [Network] Show all active listening ports and the programs using them
+- **Command:** `ss -tulpn`
+- *Added: 2026-04-16*
+
+### [File-Search] Find all files modified in the last 24 hours
+- **Command:** `find . -type f -mtime -1`
+- *Added: 2026-04-16*
+
+### [Bash] Search your command history for every Git command used
+- **Command:** `history | grep git`
 - *Added: 2026-04-16*
 

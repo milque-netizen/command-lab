@@ -1,2 +1,8 @@
-tail -f script_activity.log|Monitor script logs in real-time|Logging
+du -sh * | sort -h|List files and folders by size in human-readable format|Storage
+lsblk -o NAME,SIZE,TYPE,MOUNTPOINT|Show all disks and partitions in a clean tree|Storage
+journalctl -p 3 -xb|Show only system errors (level 3) from the current boot|System
+ps aux --sort=-%mem | head -n 10|Show the top 10 processes consuming the most RAM|Monitoring
+ss -tulpn|Show all active listening ports and the programs using them|Network
+find . -type f -mtime -1|Find all files modified in the last 24 hours|File-Search
+history | grep "git"|Search your command history for every Git command used|Bash
 
