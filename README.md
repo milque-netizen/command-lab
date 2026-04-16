@@ -1,32 +1,12 @@
-# 🐧 My Linux Command Lab
-Generated automatically by my Bash & Mapfile script.
-## List files in human-readable format
-Entry: `ls -lh`
-### Result:
-```text
-total 12K
--rwxr-xr-x 1 hydra users 1023 Apr 16 01:10 auto_lab.sh
--rw-r--r-- 1 hydra users  140 Apr 16 00:49 commands.txt
--rw-r--r-- 1 hydra users  156 Apr 16 01:12 README.md
-```
+# 📚 My Command Library
+Stored for future use. Last updated: Thu Apr 16 02:30:38 AM CEST 2026
 
----
+### List files in human-readable format
+- **Command:** `ls -lh`
 
-## Show the current system date and time
-Entry: `date`
-### Result:
-```text
-Thu Apr 16 01:12:47 AM CEST 2026
-```
+### Show the current system date and time
+- **Command:** `date`
 
----
-
-## Display the current logged-in user
-Entry: `whoami`
-### Result:
-```text
-hydra
-```
-
----
+### Display the current logged-in user
+- **Command:** `whoami`
 
