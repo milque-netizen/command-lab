@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Updated on: Thu Apr 16 10:08:47 PM CEST 2026
+Updated on: Thu Apr 16 10:13:24 PM CEST 2026
 ---
 
 ### [General] Search for all lines containing tcp
@@ -20,5 +20,9 @@ Updated on: Thu Apr 16 10:08:47 PM CEST 2026
 
 ### [Awk] Extract clean port number from service description
 - **Command:** `awk -F / /[0-9]{5}\/tcp/ { split($1,a," "); print a[2]; } /etc/services`
+- *Added: 2026-04-16*
+
+### [Bash] Check script syntax without executing it
+- **Command:** `bash -n auto_lab.sh`
 - *Added: 2026-04-16*
 
