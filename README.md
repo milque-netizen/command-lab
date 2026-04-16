@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Updated on: 2026-04-17 00:19:44
+Updated on: 2026-04-17 00:25:19
 
 ## Progress Dashboard
 * **Awk:** 2 commands
@@ -14,7 +14,7 @@ Updated on: 2026-04-17 00:19:44
 * **Networking:** 5 commands
 * **Show:** 1 commands
 * **Storage:** 3 commands
-* **System:** 1 commands
+* **System:** 2 commands
 
 ## Quick Navigation
 * [[General] Search for all lines containing tcp](#general-search-for-all-lines-containing-tcp)
@@ -42,6 +42,7 @@ Updated on: 2026-04-17 00:19:44
 * [[Networking] Show first column](#networking-show-first-column)
 * [[Networking] Show first column](#networking-show-first-column)
 * [[Networking] Show first column](#networking-show-first-column)
+* [[System] Complex Process Monitor](#system-complex-process-monitor)
 
 ---
 
@@ -160,6 +161,13 @@ ip -o addr show | awk '{print $1}'
 - **Command:**
 ```bash
 ip -o addr show | awk '{print $1}'
+```
+- *Added: 2026-04-17*
+---
+### [System] Complex Process Monitor
+- **Command:**
+```bash
+ps -eo pcpu,pmem,args | awk '$1 > 0.5 {print "CPU: " $1 "% | PID: " $NF}' | head -n 5
 ```
 - *Added: 2026-04-17*
 ---

@@ -1,2 +1,2 @@
-ip -o addr show | awk '{print $1}' ::: Show first column ::: Networking
+ps -eo pcpu,pmem,args | awk '$1 > 0.5 {print "CPU: " $1 "% | PID: " $NF}' | head -n 5 ::: Complex Process Monitor ::: System
 
