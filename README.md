@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Updated on: Fri Apr 17 12:01:38 AM CEST 2026
+Updated on: Fri Apr 17 12:03:15 AM CEST 2026
 ---
 
 ### [General] Search for all lines containing tcp
@@ -83,6 +83,12 @@ ip -o addr show
 ### [General] awk '{print $1}' ;; Show first col ;; Networking
 ```bash
 ip -o addr show
+```
+- *Added: 2026-04-17*
+
+### [ Networking]  Show first column 
+```bash
+ip -o addr show | awk '{print $1}' 
 ```
 - *Added: 2026-04-17*
 
