@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Updated on: 2026-04-17 00:15:36
+Updated on: 2026-04-17 00:19:44
 
 ## Progress Dashboard
 * **Awk:** 2 commands
@@ -11,7 +11,7 @@ Updated on: 2026-04-17 00:15:36
 * **Monitoring:** 1 commands
 * **Network:** 3 commands
 * **Networking:** 1 commands
-* **Networking:** 4 commands
+* **Networking:** 5 commands
 * **Show:** 1 commands
 * **Storage:** 3 commands
 * **System:** 1 commands
@@ -38,6 +38,7 @@ Updated on: 2026-04-17 00:15:36
 * [[Show first col | Networking] awk '{print $1}'](#show-first-col-|-networking-awk-'{print-$1}')
 * [[General] awk '{print $1}' ;; Show first col ;; Networking](#general-awk-'{print-$1}'-;;-show-first-col-;;-networking)
 * [[ Networking]  Show first column ](#-networking--show-first-column-)
+* [[Networking] Show first column](#networking-show-first-column)
 * [[Networking] Show first column](#networking-show-first-column)
 * [[Networking] Show first column](#networking-show-first-column)
 * [[Networking] Show first column](#networking-show-first-column)
@@ -148,6 +149,13 @@ ip -o addr show | awk '{print $1}'
 - *Added: 2026-04-17*
 ---
 
+### [Networking] Show first column
+- **Command:**
+```bash
+ip -o addr show | awk '{print $1}'
+```
+- *Added: 2026-04-17*
+---
 ### [Networking] Show first column
 - **Command:**
 ```bash
