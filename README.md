@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Updated on: Thu Apr 16 10:23:30 PM CEST 2026
+Updated on: Thu Apr 16 10:30:09 PM CEST 2026
 ---
 
 ### [General] Search for all lines containing tcp
@@ -56,5 +56,9 @@ Updated on: Thu Apr 16 10:23:30 PM CEST 2026
 
 ### [Bash] Search your command history for every Git command used
 - **Command:** `history | grep git`
+- *Added: 2026-04-16*
+
+### [Storage] Find the 10 largest files/folders in the current path
+- **Command:** `du -ah . | sort -rh | head -n 10`
 - *Added: 2026-04-16*
 
