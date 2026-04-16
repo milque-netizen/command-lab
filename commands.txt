@@ -1,2 +1,1 @@
-ss -nt | awk 'NR > 1 {split($5, a, ":"); count[a[1]]++} END {for (ip in count) print count[ip], ip}' | sort -rn|Count connections per remote IP|Network
-
+ip -o addr show | awk '{split($4, a, "/"); print $2 ": " a[1]}'|ip + awk (Interface Inventory)|Network
