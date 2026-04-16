@@ -1,2 +1,6 @@
-"git checkout HEAD^ README.md" "This 'undoes' the last commit and brings back your old README" "Git"
+"mapfile -n 5 my_array < file.txt" "Read only the first 5 lines of a file into an array" "mapfile"
+"mapfile -s 10 my_array < file.txt" "Skip the first 10 lines and read the rest into an array" "mapfile"
+"mapfile -t -u 3 my_array 3< file.txt" "Read from a specific file descriptor (Advanced I/O)" "mapfile"
+"mapfile -O 10 my_array < new_data.txt" "Append data starting at index 10 instead of overwriting the array" "mapfile"
+"mapfile -d ':' my_array < /etc/passwd" "Use a colon (:) as a delimiter instead of a newline" "mapfile"
 
