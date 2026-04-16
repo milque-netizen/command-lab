@@ -1,2 +1,163 @@
+grep tcp /etc/services ::: Search for all lines containing tcp ::: General
+grep -Ewo "[0-9]{5}/tcp" /etc/services ::: Find only the 5-digit TCP port strings ::: Grep
+grep -Ewo "[0-9]{5}/tcp" /etc/services | cut -d/ -f1 ::: Extract 5-digit port numbers only ::: Grep
+awk -F / '/[0-9]{5}\/tcp/ { print; }' /etc/services ::: Find and print full lines with 5-digit TCP ports ::: Awk
+awk -F / '/[0-9]{5}\/tcp/ { split($1,a," "); print a[2]; }' /etc/services ::: Extract clean port number from service description ::: Awk
+bash -n auto_lab.sh ::: Check script syntax without executing it ::: Bash
+tail -f script_activity.log ::: Monitor script logs in real-time ::: Logging
+du -sh * | sort -h ::: List files and folders by size in human-readable format ::: Storage
+lsblk -o NAME,SIZE,TYPE,MOUNTPOINT ::: Show all disks and partitions in a clean tree ::: Storage
+journalctl -p 3 -xb ::: Show only system errors (level 3) from the current boot ::: System
+ps aux --sort=-%mem | head -n 10 ::: Show the top 10 processes consuming the most RAM ::: Monitoring
+ss -tulpn ::: Show all active listening ports and the programs using them ::: Network
+find . -type f -mtime -1 ::: Find all files modified in the last 24 hours ::: File-Search
+history | grep git ::: Search your command history for every Git command used ::: Bash
+du -ah . | sort -rh | head -n 10 ::: Find the 10 largest files/folders in the current path ::: Storage
+ss -nt | awk 'NR > 1 {split($5, a, ":"); count[a[1]]++} END {for (ip in count) print count[ip], ip}' | sort -rn ::: Count connections per remote IP ::: Network
+ip -o addr show | awk '{split($4, a, "/"); print $2 ": " a[1]}' ::: Interface Inventory ::: Networking
 ps -eo pcpu,pmem,args | awk '$1 > 0.5 {print "CPU: " $1 "% | PID: " $NF}' | head -n 5 ::: Complex Process Monitor ::: System
+grep -r "TODO" . ::: Recursively find all TODO comments in the current directory ::: Development
+find /var/log -type f -name "*.log" -size +100M ::: Find log files larger than 100MB ::: Maintenance
+stat -c "%a %n" * ::: Show numeric permissions (e.g. 755) for all files ::: Security
+lsof -i :80 ::: Find which process is running on port 80 ::: Network
+curl -I https://google.com ::: Fetch only the HTTP header from a website ::: Network
+tar -ztvf backup.tar.gz ::: List the contents of a compressed tarball without extracting ::: Storage
+df -h --total ::: Show disk usage with a grand total line at the bottom ::: Storage
+free -h --si ::: Show RAM usage in human-readable power-of-1000 units ::: System
+uptime -p ::: Show system uptime in a pretty, easy-to-read format ::: System
+awk '{print $NF}' /etc/shells ::: Print only the last column of a file ::: Awk
+sed -i 's/[[:space:]]*$//' file.txt ::: Remove trailing whitespace from every line in a file ::: Sed
+watch -n 1 "cat /proc/loadavg" ::: Monitor system load average in real-time every second ::: Monitoring
+openssl rand -base64 12 ::: Generate a random 12-character secure password ::: Security
+ls -lS ::: List files sorted by file size (largest first) ::: General
+grep -v "^#" config.conf ::: Display a config file skipping all commented lines ::: Grep
+ip route show ::: Show the systems routing table and default gateway ::: Network
+sudo fdisk -l ::: List all connected drives and their partition tables ::: Storage
+history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10 ::: Show your top 10 most used terminal commands ::: Bash
+ps -eo user,pid,ppid,cmd --forest ::: Show a tree-style view of all running processes ::: System
+pgrep -l ssh ::: List the Process ID and name of any running SSH sessions ::: System
+sudo dmesg -T | tail -n 20 ::: Show the last 20 kernel messages with readable timestamps ::: System
+find . -empty -type d -delete ::: Find and remove all empty directories recursively ::: Maintenance
+ls -ld */ ::: List only directories in the current path (no files) ::: General
+cat /proc/cpuinfo | grep "model name" | uniq ::: Identify the exact CPU model installed ::: Hardware
+sudo dmidecode -s system-serial-number ::: Retrieve the hardware serial number (Service Tag) ::: Hardware
+nmcli device status ::: Check the status of all managed network interfaces ::: Network
+dig +short google.com ::: Get a quick, clean IP address result for a domain ::: Network
+who -Hu ::: List all logged-in users and their idle time ::: Security
+last -a | head -n 10 ::: Show the last 10 login attempts including hostnames ::: Security
+wc -l *.sh ::: Count the total number of lines in all shell scripts ::: Development
+sort -t: -k3 -n /etc/passwd ::: Sort the passwd file numerically by User ID (third column) ::: Awk
+sed -n '5,10p' file.txt ::: Print only lines 5 through 10 of a file ::: Sed
+top -b -n 1 | head -n 12 ::: Take a single "snapshot" of system resources for logging ::: Monitoring
+shred -u secret.txt ::: Securely overwrite and then delete a sensitive file ::: Security
+alias ::: List all currently defined command aliases in your shell ::: Bash
+echo $PATH | tr ":" "\n" ::: Print your system PATH variable with one directory per line ::: Bash
+docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" ::: List all containers with a clean, custom table format ::: Docker
+docker system prune -a ::: Remove all unused containers, networks, and images to free space ::: Docker
+docker stats --no-stream ::: Take a one-time snapshot of CPU and Memory usage for all containers ::: Docker
+nc -zv 127.0.0.1 22-80 ::: Scan a range of ports on a host to see which are open ::: Network
+ip -s link show eth0 ::: Show detailed packet statistics (errors, drops) for an interface ::: Network
+mtr -rw google.com ::: Perform a combined Ping and Traceroute report in wide format ::: Network
+sudo lshw -short ::: Generate a compact hardware inventory of the entire system ::: Hardware
+glances ::: Start a comprehensive "all-in-one" system monitor (if installed) ::: Monitoring
+iostat -xz 1 5 ::: Show detailed disk I/O wait times and utilization every second ::: Monitoring
+find . -type f -exec chmod 644 {} + ::: Recursively set all files to standard permissions ::: Security
+find . -type d -exec chmod 755 {} + ::: Recursively set all directories to standard permissions ::: Security
+grep -i "fail" /var/log/auth.log ::: Search for failed login attempts in the authentication logs ::: Security
+column -t -s: /etc/passwd ::: Display the passwd file as a perfectly aligned table ::: General
+split -b 100M largefile.iso part_ ::: Split a massive file into smaller 100MB chunks ::: Storage
+rsync -avzP source/ dest/ ::: Sync directories with compression, archives, and progress bar ::: Storage
+python3 -m http.server 8000 ::: Instantly host the current directory as a website on port 8000 ::: Development
+git log --oneline --graph --all ::: Show a visual branch tree of your entire Git history ::: Bash
+echo !! ::: Re-run the last command executed (shortcut for sudo !!) ::: Bash
+gpg -c sensitive_file.txt ::: Encrypt a file with a password-based symmetric cipher ::: Security
+gpg -d sensitive_file.txt.gpg ::: Decrypt a GPG-encrypted file back to plain text ::: Security
+sudo useradd -m -G sudo -s /bin/bash newuser ::: Create a new user with a home directory and sudo access ::: User-Management
+sudo chage -l username ::: List password expiration and aging details for a specific user ::: User-Management
+groups username ::: List all groups that a specific user belongs to ::: User-Management
+kill -l ::: List all available signals (like SIGTERM, SIGKILL) that can be sent to processes ::: System
+killall -u username ::: Kill every process owned by a specific user ::: System
+pkill -9 -f "process_name" ::: Forcefully kill a process by searching for its full command name ::: System
+strace -p 1234 ::: Attach to a running process to see every system call it makes in real-time ::: Development
+ldd /bin/ls ::: List all shared library dependencies for a specific binary ::: Development
+grep -r "error" /var/log/ 2>/dev/null ::: Search for "error" in all logs while hiding "Permission Denied" errors ::: Grep
+rename 's/\.txt/\.bak/' *.txt ::: Bulk rename all .txt files to .bak in one command ::: General
+zcat logfile.gz | grep "crit" ::: Search inside a compressed .gz file without extracting it first ::: General
+timeout 10s ./script.sh ::: Run a command but automatically kill it if it takes longer than 10 seconds ::: Bash
+cd - ::: Instantly switch back to the previous directory you were in ::: Bash
+disown -a ::: Keep all background jobs running even after you close the terminal ::: Bash
+logger "Manual system checkpoint" ::: Manually add a custom entry into the system syslog ::: Logging
+ls -F ::: Append a character to names indicating file type (e.g., / for dirs, * for executables) ::: General
+sudo hdparm -tT /dev/sda ::: Test the read speed of your hard drive/SSD ::: Hardware
+cat /sys/class/thermal/thermal_zone*/temp ::: Check the raw CPU temperature (divide by 1000 for Celsius) ::: Hardware
+sudo smartctl -a /dev/sda ::: Read the S.M.A.R.T. health status and life span of a disk ::: Hardware
+lsusb -v ::: List detailed information about all connected USB devices ::: Hardware
+sudo powertop --auto-tune ::: Automatically apply power-saving settings to a laptop ::: System
+sysctl -a ::: List all kernel parameters and runtime configurations ::: System
+sudo sysctl -w net.ipv4.ip_forward=1 ::: Enable IP forwarding at the kernel level (routing) ::: Network
+ip neigh show ::: Show the ARP table (IP-to-MAC address mapping) of the local network ::: Network
+nmap -sn 192.168.1.0/24 ::: Perform a "ping sweep" to find all active devices on your network ::: Network
+tcpdump -i eth0 -n ::: Capture and display network packets in real-time on a specific interface ::: Network
+ss -s ::: Show a summary of socket statistics (TCP/UDP/Raw/Est) ::: Network
+openssl s_client -connect google.com:443 ::: Inspect an SSL/TLS certificate for a specific domain ::: Security
+ssh-keygen -p ::: Change or add a passphrase to an existing SSH private key ::: Security
+sudo fail2ban-client status ::: Check the status of the Fail2Ban service and banned IPs ::: Security
+fuser -k 8080/tcp ::: Identify and kill the process currently holding port 8080 ::: System
+ps -eLo pid,ppid,tid,class,rtprio,ni,pri,stat,comm ::: Show detailed thread information for all processes ::: System
+nice -n 19 ./script.sh ::: Start a process with the lowest possible priority ::: System
+ionice -c 3 ./backup.sh ::: Run a process only when no other process needs the disk (Idle priority) ::: System
+tail -n +11 file.txt ::: Display a file starting from line 11 (skips the first 10) ::: General
+comm -12 file1.txt file2.txt ::: Compare two sorted files and show only the lines they have in common ::: General
+diff -u file1.txt file2.txt ::: Show the "unified" difference between two files (standard for patches) ::: General
+sed -i 's/\r//' script.sh ::: Convert Windows-style (CRLF) line endings to Linux-style (LF) ::: Sed
+awk '!visited[$0]++' file.txt ::: Remove duplicate lines from a file without sorting it ::: Awk
+cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 5 ::: Generate 5 high-entropy random strings ::: Security
+grep -P "\t" file.txt ::: Search for actual "Tab" characters in a file ::: Grep
+grep -rli "password" . ::: List only the names of files containing the word "password" ::: Grep
+screen -S mysession ::: Start a detachable terminal session that stays alive after logout ::: Bash
+screen -r ::: Re-attach to a previously running screen session ::: Bash
+shopt -s cdspell ::: Enable auto-correction of minor typos in the "cd" command ::: Bash
+set -o vi ::: Enable Vi-style keybindings for your terminal command line ::: Bash
+find . -name "*.tmp" -print0 | xargs -0 rm ::: Safely delete files with spaces in their names ::: File-Search
+locate -i filename ::: Rapidly find a file by name using the pre-built system index ::: File-Search
+sudo updatedb ::: Manually refresh the file index used by the "locate" command ::: Maintenance
+journalctl --vacuum-time=7d ::: Delete all system logs older than 7 days to save space ::: Maintenance
+history -c ::: Clear your current terminal session history ::: Bash
+cat <<EOF > test.txt ::: Use a "Heredoc" to write multi-line text into a file from a script ::: Development
+uname -a ::: Show the kernel version, architecture, and OS release info ::: System
+hostnamectl ::: View and modify the system hostname and related settings ::: System
+lsmod ::: List all kernel modules currently loaded into memory ::: System
+modinfo bluetooth ::: Show detailed information about a specific kernel module ::: System
+sudo sysctl -w vm.swappiness=10 ::: Reduce the tendency of the kernel to swap to disk ::: System
+curl -w "@- \n" -o /dev/null -s google.com ::: Measure the response time (latency) of a website ::: Network
+wget --mirror -p --convert-links -P ./backup http://site.com ::: Download an entire website for offline viewing ::: Network
+whois google.com ::: Look up domain registration and ownership information ::: Network
+arping -I eth0 192.168.1.1 ::: Send ARP requests to test if an IP is active on the local link ::: Network
+iperf3 -s ::: Start a network throughput server to test bandwidth ::: Network
+ip addr add 192.168.1.50/24 dev eth0 ::: Manually assign a secondary IP address to an interface ::: Network
+sudo tcpdump -i any port 80 ::: Sniff HTTP traffic across all network interfaces ::: Network
+openssl enc -aes-256-cbc -salt -in file.txt -out file.enc ::: Encrypt a file using AES-256 bit encryption ::: Security
+openssl x509 -in cert.pem -text -noout ::: Read and verify the contents of a local SSL certificate ::: Security
+nmap -p 1-65535 -T4 localhost ::: Perform a high-speed scan of all 65535 ports on the local machine ::: Security
+sudo rkhunter --check ::: Scan the system for rootkits and hidden backdoors ::: Security
+sudo lynis audit system ::: Perform a comprehensive security health audit of the OS ::: Security
+grep -i "accepted" /var/log/auth.log ::: List all successful SSH logins for security auditing ::: Security
+ps -C process_name -o pid= ::: Find the Process ID of a specific program by name only ::: System
+taskset -p -c 0,1 1234 ::: Restrict a running process to specific CPU cores ::: System
+nohup ./script.sh & ::: Run a script that continues even if the terminal is closed ::: Bash
+alias ..="cd .." ::: Create a shortcut to go up one directory level ::: Bash
+fc ::: Open your last command in a text editor to fix and re-run it ::: Bash
+pushd /var/log ::: Save the current directory and switch to a new one ::: Bash
+popd ::: Return to the directory saved by the last pushd command ::: Bash
+tree -L 2 ::: Show a visual tree of the directory structure up to 2 levels deep ::: General
+cat /etc/os-release ::: Identify the exact Linux distribution and version details ::: General
+tail -f /var/log/syslog | grep --line-buffered "error" ::: Stream only the error lines from the system log ::: Logging
+journalctl -u ssh --since "1 hour ago" ::: Show SSH service logs from the last 60 minutes ::: Logging
+df -i ::: Show the number of free/used Inodes on the disk ::: Storage
+sudo blkid ::: List the UUIDs and file system types of all block devices ::: Storage
+mount | column -t ::: Show all mounted filesystems in a perfectly aligned table ::: Storage
+sync ::: Force all buffered data in RAM to be written to the disk ::: Maintenance
+cat /proc/meminfo | grep "MemAvailable" ::: Get the most accurate reading of truly available RAM ::: System
+watch -d ls -l ::: Highlight the differences between updates of a directory listing ::: General
+history -a ::: Immediately write the current session's history to the .bash_history file ::: Bash
 
