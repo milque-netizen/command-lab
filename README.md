@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Updated on: Thu Apr 16 10:30:09 PM CEST 2026
+Updated on: Thu Apr 16 11:38:40 PM CEST 2026
 ---
 
 ### [General] Search for all lines containing tcp
@@ -60,5 +60,9 @@ Updated on: Thu Apr 16 10:30:09 PM CEST 2026
 
 ### [Storage] Find the 10 largest files/folders in the current path
 - **Command:** `du -ah . | sort -rh | head -n 10`
+- *Added: 2026-04-16*
+
+### [Network] Count connections per remote IP
+- **Command:** `ss -nt | awk NR > 1 {split($5, a, ":"); count[a[1]]++} END {for (ip in count) print count[ip], ip} | sort -rn`
 - *Added: 2026-04-16*
 

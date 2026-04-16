@@ -1,2 +1,2 @@
-du -ah . | sort -rh | head -n 10|Find the 10 largest files/folders in the current path|Storage
+ss -nt | awk 'NR > 1 {split($5, a, ":"); count[a[1]]++} END {for (ip in count) print count[ip], ip}' | sort -rn|Count connections per remote IP|Network
 
