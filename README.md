@@ -1,16 +1,13 @@
 # 📚 My Command Library
-Organized by Category. Updated on: Thu Apr 16 03:04:58 AM CEST 2026
+Organized by Category. Updated on: Thu Apr 16 03:09:54 AM CEST 2026
 ---
 
-### [Filesystem] List files
-- **Command:** `ls -lh`
+### [Searching] Search for text ignoring case
+- **Command:** `grep -i`
 
-### [Git] Check git state
-- **Command:** `git status`
+### [System] Make a script executable
+- **Command:** `chmod +x`
 
-### [System] Show time
-- **Command:** `date`
-
-### [General] 
-- **Command:** ``
+### [tar] Compress a folder into a .tar.gz file
+- **Command:** `tar -czvf`
 

@@ -1,4 +1,4 @@
-"ls -lh" "List files" "Filesystem"
-"git status" "Check git state" "Git"
-"date" "Show time" "System"
+"grep -i" "Search for text ignoring case" "Searching"
+"chmod +x" "Make a script executable" "System"
+"tar -czvf" "Compress a folder into a .tar.gz file" "tar"
 
