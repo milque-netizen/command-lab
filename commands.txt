@@ -1,4 +1,3 @@
-"grep -i" "Search for text ignoring case" "Searching"
-"chmod +x" "Make a script executable" "System"
-"tar -czvf" "Compress a folder into a .tar.gz file" "tar"
+"find . -name '*.py' " "Find all Python files" "Filesystem"
+"git log --oneline" "See compact history" "Git"
 

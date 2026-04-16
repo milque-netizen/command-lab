@@ -1,13 +1,10 @@
 # 📚 My Command Library
-Organized by Category. Updated on: Thu Apr 16 03:09:54 AM CEST 2026
+Organized by Category. Updated on: Thu Apr 16 03:27:47 AM CEST 2026
 ---
 
-### [Searching] Search for text ignoring case
-- **Command:** `grep -i`
+### [Filesystem] Find all Python files
+- **Command:** `find . -name '*.py' `
 
-### [System] Make a script executable
-- **Command:** `chmod +x`
-
-### [tar] Compress a folder into a .tar.gz file
-- **Command:** `tar -czvf`
+### [Git] See compact history
+- **Command:** `git log --oneline`
 
