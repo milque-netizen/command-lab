@@ -1,5 +1,5 @@
 # 📚 My Command Library
-Organized by Category. Updated on: Thu Apr 16 03:56:49 AM CEST 2026
+Organized by Category. Updated on: Thu Apr 16 04:04:14 AM CEST 2026
 ---
 
 ### [Filesystem] Find all Python files
@@ -30,5 +30,9 @@ Organized by Category. Updated on: Thu Apr 16 03:56:49 AM CEST 2026
 
 ### [mapfile] Use a colon (:) as a delimiter instead of a newline
 - **Command:** `mapfile -d ':' my_array < /etc/passwd`
+- *Added: 2026-04-16*
+
+### [sed] Surgically update the date on the 2nd line of a file
+- **Command:** `sed -i '2s/Updated on:.*/Updated on: \$(date)/' README.md`
 - *Added: 2026-04-16*
 
